@@ -1,44 +1,21 @@
 <html>
 
-<style>
-
-  a {
-    color: orange;
-  }
-
-</style>
-
-<script src="https://brave-narwhal-ionelm-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
-
-<div data-lightning-out="true"></div>
-
+  <div id="lightning"></div>
+  <script src="https://brave-narwhal-ionelm-dev-ed.my.salesforce.com/lightning/lightning.out.js"></script>
   <script>
-
-    const appName = 'c:auraAppTest';
-    const componentName = 'c:lwcCustomLdsStyles';
-    const lightningEndpoint = 'https://brave-narwhal-ionelm-dev-ed.my.site.com';
-    const targetElement = document.querySelector("[data-lightning-out]");
-    const componentAttributes = {
-
-    };
-
-    $Lightning.use(
-            appName,
-            function (){
-              $Lightning.createComponent(
-                      componentName,
-                      componentAttributes,
-                      targetElement,
-                      function (cmp){
-                        console.log('lightning component created');
-                      }
-              );
-            },
-            lightningEndpoint
-    );
-
-
+       $Lightning.use("c:auraAppTest", function() {
+          $Lightning.createComponent("c:lwcCustomLdsStyles", {
+                  
+              },
+                "lightning",
+                function(cmp) {
+                  console.log("LWC component was created");
+                  // do some stuff
+                }
+            );
+          },
+         'https://brave-narwhal-ionelm-dev-ed.my.site.com/'
+        );
   </script>
-
 
 </html>
